@@ -22,7 +22,7 @@
             this.video = document.createElement('video');
             this.file = document.querySelector(opts.uploadId);
             this.cvsele = document.querySelector(opts.sweepId);
-            // this.canvas = this.cvsele.getContext('2d');
+            this.canvas = this.cvsele.getContext('2d');
             this.seuccess = opts.seuccess || Function;
             this.error = opts.error || Function;
         };
