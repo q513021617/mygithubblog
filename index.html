@@ -11,31 +11,28 @@
 
 <body>
     <menu class="menu" id="menu">
-        <nav class="active">二维码生成</nav> |
-        <nav>二维码识别</nav>
+        <nav >二维码生成</nav> |
+        <nav class="active">二维码识别</nav>
     </menu>
 
     <h1 class="h1">纯前端 JS ：二维码：生成、扫描、识别 (HTML版)</h1>
     <hr />
 
     <main class="main">
-        <aside class="create">
+        <!-- <aside class="create">
             <input type="text" id="code" value="http://www.muguilin.com" placeholder="请在这里输入要生成的内容！" />
             <input type="button" value="生成" onclick="create()" />
             <div class="qrcode" id="qrcode"></div>
-        </aside>
+        </aside> -->
         <aside class="reader">
             <button class="sweep" onclick="sweep()">扫一扫</button>
-            <button class="sweep">
-                <input type="file" id="file" onchange="upload()" />从相册选择
-            </button>
             <div class="imgurl">
-                <img id="imgurl"
+                <!-- <img id="imgurl"
                     src="https://raw.githubusercontent.com/MuGuiLin/QRCode/master/VueQRCode/src/assets/github.com.png"
-                    alt="当前识别的二维码" />
+                    alt="当前识别的二维码" /> -->
             </div>
-            <textarea class="result" id="result" cols="32" rows="6" placeholder="二维码识别结果！"></textarea>
-            <canvas class="canvas" id="canvas"></canvas>
+            <!-- <textarea class="result" id="result" cols="32" rows="6" placeholder="二维码识别结果！"></textarea> -->
+            <!-- <canvas class="canvas" id="canvas"></canvas> -->
         </aside>
     </main>
 
@@ -64,7 +61,7 @@
     <script src="./js/jsqr.min.js"></script>
     <script src="./js/base.js"></script>
     <script>
-        const result = document.querySelector('#result');
+        const result = "";
         const QrCode = new QrCodeRecognition({
             sweepId: '#canvas',
             uploadId: '#file',
@@ -74,10 +71,21 @@
             },
             seuccess: function (res) {
                 // 识别成功反馈
-                result.value = res.data;
+                // result.value = res.data;
+                location.href=getQueryVariable("callback")+"?qr="+encodeURIComponent(res.data)
             }
         });
 
+        function getQueryVariable(variable)
+{
+       var query = window.location.search.substring(1);
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){return pair[1];}
+       }
+       return(false);
+};
         // 扫一扫
         function sweep() {
             result.value = '';
