@@ -7,16 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>二维码：生成、扫描、识别</title>
     <link rel="stylesheet" href="./css/base.css" />
-    <script async src="//hm.baidu.com/hm.js?29d14c9fb6158fcbec79d1a0d1425404"></script>
 </head>
 
 <body>
     <menu class="menu" id="menu">
-        <!-- <nav >二维码生成</nav> | -->
-        <nav class="active">二维码识别</nav>
+        <nav class="active">二维码生成</nav> |
+        <nav>二维码识别</nav>
     </menu>
 
-    <h1 class="h1">zhiyigo认证</h1>
+    <h1 class="h1">纯前端 JS ：二维码：生成、扫描、识别 (HTML版)</h1>
     <hr />
 
     <main class="main">
@@ -31,9 +30,9 @@
                 <input type="file" id="file" onchange="upload()" />从相册选择
             </button>
             <div class="imgurl">
-                <!-- <img id="imgurl"
+                <img id="imgurl"
                     src="https://raw.githubusercontent.com/MuGuiLin/QRCode/master/VueQRCode/src/assets/github.com.png"
-                    alt="当前识别的二维码" /> -->
+                    alt="当前识别的二维码" />
             </div>
             <textarea class="result" id="result" cols="32" rows="6" placeholder="二维码识别结果！"></textarea>
             <canvas class="canvas" id="canvas"></canvas>
@@ -94,18 +93,18 @@
 
     <!-- Demo页面交互 -->
     <script>
-        // const menu = [...document.querySelectorAll('nav')];
-        // const aside = [...document.querySelectorAll('aside')];
-        // menu.forEach((nav, n) => {
-        //     nav.onclick = () => {
-        //         aside.forEach((ele, a) => {
-        //             ele.style.display = 'none';
-        //             menu[a].classList.remove('active');
-        //         });
-        //         menu[n].classList.add('active');
-        //         aside[n].style.display = 'block';
-        //     }
-        // });
+        const menu = [...document.querySelectorAll('nav')];
+        const aside = [...document.querySelectorAll('aside')];
+        menu.forEach((nav, n) => {
+            nav.onclick = () => {
+                aside.forEach((ele, a) => {
+                    ele.style.display = 'none';
+                    menu[a].classList.remove('active');
+                });
+                menu[n].classList.add('active');
+                aside[n].style.display = 'block';
+            }
+        });
     </script>
 </body>
 
