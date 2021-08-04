@@ -32,7 +32,6 @@
 
 .main .create {
     text-align: center;
-    display   : none;
 }
 
 .main .create input {
@@ -63,7 +62,7 @@
 }
 
 .main .reader {
-    display   : block;
+    display   : none;
     text-align: center;
     font-size : 16px;
 }
